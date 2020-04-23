@@ -1,0 +1,9 @@
+.search{
+    border-radius: .4rem;
+    margin-right: .2rem;
+    flex-grow: 1;
+}
+
+@media (max-width: 425px ) {
+    .search{margin-right: 0}
+}

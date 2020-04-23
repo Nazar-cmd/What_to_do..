@@ -1,0 +1,17 @@
+.TodoApp{
+    margin: 2rem auto 0 auto;
+    max-width: 400px;
+}
+
+.top-panel{
+    display: flex;
+    margin-bottom: 1rem ;
+}
+
+@media (max-width: 425px ) {
+    .top-panel{
+        flex-direction: column-reverse;
+    }
+    .TodoApp{
+        padding: 1rem;
+    }}

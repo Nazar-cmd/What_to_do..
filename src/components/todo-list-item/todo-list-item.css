@@ -1,0 +1,48 @@
+TodoList{
+    display: flex;
+    flex-direction: row;
+}
+
+.TodoListItem.done{
+    text-decoration: line-through;
+}
+
+.TodoListItem.important{
+    font-weight: bold;
+    color: gold;
+}
+
+.TodoListItem{
+    display: inline-flex;
+    width: 70%;
+    white-space: pre-wrap;
+    overflow: auto;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.TodoList .btn{
+    width: 31px !important ;
+}
+
+
+@media (max-width: 425px ) {
+    .TodoListItem{
+        width: 65%;
+    }
+
+
+    .TodoList .btn{
+        width: 31px !important ;
+    }
+}
+/*
+pre{
+    white-space: pre-wrap;
+    overflow: auto;
+    max-width: 80%;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}*/

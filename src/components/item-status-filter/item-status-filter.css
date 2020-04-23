@@ -1,0 +1,11 @@
+
+@media (max-width: 425px ) {
+    .ItemStatusFilter{
+        justify-content: center;
+        margin: 1rem 0;
+    }
+   .btn{
+       justify-items: center;
+       width: 33%;
+   }
+}
