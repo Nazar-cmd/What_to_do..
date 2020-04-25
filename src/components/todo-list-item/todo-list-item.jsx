@@ -7,7 +7,7 @@ const TodoListItem=({text,important,done,onDeleted, onToggleImportant, onToggleD
 
 
 
-    let classNames='TodoListItem';
+    let classNames='todo_list_item';
 
     if (done) {
         classNames+=' done';
@@ -18,7 +18,7 @@ const TodoListItem=({text,important,done,onDeleted, onToggleImportant, onToggleD
     }
 
     return(
-        <span className='TodoList'>
+        <span className='todo_list'>
             <span onClick={onToggleDone} className={classNames}>
                 {text}
             </span>
@@ -31,6 +31,6 @@ const TodoListItem=({text,important,done,onDeleted, onToggleImportant, onToggleD
         </span>
 
     )
-}
+};
 
 export default TodoListItem

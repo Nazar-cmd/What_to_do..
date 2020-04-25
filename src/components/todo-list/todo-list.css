@@ -1,0 +1,11 @@
+.list-group{
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+@media (max-width: 425px) {
+    .list-group{
+        max-height: 210px;
+        overflow-y: auto;
+    }
+}

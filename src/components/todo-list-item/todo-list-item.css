@@ -1,18 +1,13 @@
-TodoList{
-    display: flex;
-    flex-direction: row;
-}
-
-.TodoListItem.done{
+.todo_list_item.done{
     text-decoration: line-through;
 }
 
-.TodoListItem.important{
+.todo_list_item.important{
     font-weight: bold;
-    color: gold;
+    color: #00BFFF;
 }
 
-.TodoListItem{
+.todo_list_item{
     display: inline-flex;
     width: 70%;
     white-space: pre-wrap;
@@ -22,27 +17,18 @@ TodoList{
     overflow-wrap: break-word;
 }
 
-.TodoList .btn{
+.todo_list .btn{
     width: 31px !important ;
 }
 
 
 @media (max-width: 425px ) {
-    .TodoListItem{
+    .todo_list_item{
         width: 65%;
     }
 
 
-    .TodoList .btn{
+    .todo_list .btn{
         width: 31px !important ;
     }
 }
-/*
-pre{
-    white-space: pre-wrap;
-    overflow: auto;
-    max-width: 80%;
-    word-break: break-word;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}*/

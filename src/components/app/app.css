@@ -1,17 +1,19 @@
-.TodoApp{
+
+
+.todoApp{
     margin: 2rem auto 0 auto;
     max-width: 400px;
 }
 
-.top-panel{
+.top_panel{
     display: flex;
     margin-bottom: 1rem ;
 }
 
 @media (max-width: 425px ) {
-    .top-panel{
+    .top_panel{
         flex-direction: column-reverse;
     }
-    .TodoApp{
+    .todoApp{
         padding: 1rem;
     }}

@@ -128,10 +128,10 @@ export default class App extends Component{
 
 
         return(
-            <div className="TodoApp">
+            <div className="todoApp">
 
                 <Header toDo={todoCount} done={doneCount}/>
-                <div className="top-panel">
+                <div className="top_panel">
                     <SearchPanel
                         onSearchChange={this.onSearchChange}/>
                     <ItemStatusFilter

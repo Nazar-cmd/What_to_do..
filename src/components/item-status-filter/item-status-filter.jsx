@@ -31,7 +31,7 @@ export default class ItemStatusFilter extends Component{
 
 
         return(
-            <div className='ItemStatusFilter btn-group'>
+            <div className='item_status_filter btn-group'>
                 {buttons}
             </div>
         )
