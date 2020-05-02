@@ -1,0 +1,14 @@
+.count{
+    text-align: end;
+    margin-bottom: .5rem;
+}
+
+.todo_count.active{
+    font-weight: bold;
+    color: #ff2b21;
+}
+
+.done_count.active{
+    font-weight: bold;
+    color: #50C878;
+}
