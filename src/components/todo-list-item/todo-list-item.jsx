@@ -5,8 +5,6 @@ import './todo-list-item.css'
 const TodoListItem=({text,important,done,onDeleted, onToggleImportant, onToggleDone})=>{
 
 
-
-
     let classNames='todo_list_item';
 
     if (done) {

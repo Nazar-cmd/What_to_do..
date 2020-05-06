@@ -1,19 +1,32 @@
 
 
-.todoApp{
-    margin: 2rem auto 0 auto;
-    max-width: 400px;
+
+
+.description h4{
+    text-align: center;
+
 }
 
-.top_panel{
+
+.logout-theme{
+    margin: auto;
+    max-width: 600px;
+}
+
+.description-item{
+    border-radius: 3rem;
+    margin: 1rem;
     display: flex;
-    margin-bottom: 1rem ;
+    flex-direction: row;
 }
 
-@media (max-width: 425px ) {
-    .top_panel{
-        flex-direction: column-reverse;
-    }
-    .todoApp{
-        padding: 1rem;
-    }}
+.description img{
+    margin: auto;
+    padding: 1rem;
+    width: 60%;
+    border-radius: 1rem;
+}
+
+.card-body{
+    text-align: center;
+}

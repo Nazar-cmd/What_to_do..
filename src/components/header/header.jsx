@@ -14,7 +14,7 @@ export default class Header extends Component{
     };
 
 
-    hidePopup(){
+    hidePopup=()=>{
         this.setState({whichPopup:null})
     };
 
@@ -35,24 +35,52 @@ export default class Header extends Component{
 
     render() {
 
-        //console.log(this.props.ifUser);
 
         const {whichPopup} = this.state;
 
-        const loginForm = (whichPopup==='Login')?<Popup submit={this.logInUser} text={'Login'}/>:null;
-        const registrationForm = (whichPopup === 'Register')?<Popup submit={this.reqUser} text={'Registration'} />:null;
+        const loginForm = (whichPopup==='Login')?<Popup submit={this.logInUser} exit={this.hidePopup} text={'Login'}/>:null;
+        const registrationForm = (whichPopup === 'Register')?<Popup submit={this.reqUser} exit={this.hidePopup} text={'Registration'} />:null;
 
         if (this.props.isLogged){
             return <button onClick={()=>this.logOutUser()}>Sign Out</button>
         }
 
         return (
-            <div>
+            /*<div>
 
                 {loginForm}
                 {registrationForm}
                 <span onClick={()=>{this.popupClick('Login')}}> Login </span>
                 <span onClick={()=>{this.popupClick('Register')}} > Register </span>
+            </div>*/
+
+            <div>
+                {loginForm}
+                {registrationForm}
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <span className="navbar-brand">What's up?</span>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"> </span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <span className="nav-link" onClick={() => {
+                                    this.popupClick('Login')
+                                }}> Login </span>
+                            </li>
+                            <li className="nav-item">
+                                <span className="nav-link" onClick={() => {
+                                    this.popupClick('Register')
+                                }}> Register </span>
+                            </li>
+                            <li className="nav-item">
+                                <span className="nav-link"> About </span>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         );
     }

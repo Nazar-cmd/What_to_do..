@@ -51,7 +51,8 @@ export default class Popup extends Component{
                             <input type="password" className="form-control" id="exampleInputPassword1"
                                    placeholder="At least 6 symbols" onChange={this.onPasswordChange} />
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
+                        <button type="submit" className="btn btn-primary m-2" onClick={this.onSubmit}>Submit</button>
+                        <button type="submit" className="btn btn-secondry m-2" onClick={this.onSubmit}>Return</button>
                     </form>
                 </div>
             </div>

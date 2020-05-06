@@ -1,0 +1,10 @@
+.top-panel{
+    display: flex;
+    margin-bottom: 1rem ;
+}
+
+@media (max-width: 425px ) {
+    .top-panel {
+        flex-direction: column-reverse;
+    }
+}

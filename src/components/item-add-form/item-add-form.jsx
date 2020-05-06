@@ -6,6 +6,7 @@ export default class ItemAddForm extends Component {
     state = {
         text: ''
     };
+
     onTextChange = (e) => {
         this.setState({
             text: e.target.value
@@ -15,7 +16,7 @@ export default class ItemAddForm extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         if(this.state.text){
-            this.props.onItemAdd(this.state.text)
+            this.props.onItemAdd(this.state.text);
             this.setState({
                 text: ''
             });

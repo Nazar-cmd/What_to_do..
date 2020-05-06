@@ -1,6 +1,6 @@
 
 @media (max-width: 425px ) {
-    .item_status_filter{
+    .item-status-filter{
         justify-content: center;
         margin: 1rem 0;
     }

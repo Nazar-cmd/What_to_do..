@@ -16,7 +16,7 @@ export default class UserDataService{
     }
 
 
-    async createTodoItem(text,uid){
+    async createItem(text,uid){
         const id = await this.getSize(uid);
         db
             .collection('users')
@@ -32,6 +32,7 @@ export default class UserDataService{
             .catch((e)=>{return e});
     }
 
+
     updateItem(property,id,prevValue, uid){
         db
             .collection('users')
@@ -39,7 +40,7 @@ export default class UserDataService{
             .collection('listItems')
             .doc(id)
             .update({
-                [property]: prevValue
+                [property]: !prevValue
             })
             .catch((e)=>{return e});
     }

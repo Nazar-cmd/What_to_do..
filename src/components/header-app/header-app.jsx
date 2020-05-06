@@ -1,5 +1,5 @@
 import React from "react";
-import './header.css'
+import './header-app.css'
 
 
 
@@ -9,8 +9,8 @@ import './header.css'
 
 const HeaderApp = ({toDo,done}) =>{
 
-    let todo_count = 'todo_count';
-    let done_count = 'done_count';
+    let todo_count = 'todo-count';
+    let done_count = 'done-count';
 
     if (toDo){
         todo_count+=' active'
