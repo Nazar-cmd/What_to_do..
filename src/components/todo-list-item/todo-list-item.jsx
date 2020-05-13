@@ -5,7 +5,7 @@ import './todo-list-item.css'
 const TodoListItem=({text,important,done,onDeleted, onToggleImportant, onToggleDone})=>{
 
 
-    let classNames='todo_list_item';
+    let classNames='todo-list-item';
 
     if (done) {
         classNames+=' done';
@@ -16,7 +16,7 @@ const TodoListItem=({text,important,done,onDeleted, onToggleImportant, onToggleD
     }
 
     return(
-        <span className='todo_list'>
+        <span className='todo-list'>
             <span onClick={onToggleDone} className={classNames}>
                 {text}
             </span>

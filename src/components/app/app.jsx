@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import Header from "../header";
 import MainApp from "../main-app";
-import {auth} from '../FB/FBmore'
+import {auth} from '../FB'
 
-import ssd from '../../img/123.png'
 import "./app.css"
 
 export default class App extends Component{
@@ -26,15 +25,9 @@ export default class App extends Component{
 
 
 
-
-
-
-
-
     render() {
 
         const {user,loggedIn} = this.state;
-
 
         const head = (loggedIn !== null)?<Header isLogged={loggedIn}/>:null;
         const main = (loggedIn)?<MainApp user={user}/>:null;

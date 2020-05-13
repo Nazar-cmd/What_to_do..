@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import './header.css'
-import Popup from "../Popup";
-import {auth} from "../FB/FBmore";
+import {LoginPopup, RegisterPopup, Logout} from "../todo-components";
+import {LoggedInHeader,StartHeader} from "../todo-components/header-list";
+
+
+import UserEnterService from "../service/user-enter-service";
+const userEnterService = new UserEnterService();
+
+
 
 export default class Header extends Component{
 
@@ -9,54 +15,48 @@ export default class Header extends Component{
         whichPopup: null
     };
 
-    popupClick = (name) =>{
+    buttonClick = (name) =>{
         this.setState({whichPopup:name})
     };
-
 
     hidePopup=()=>{
         this.setState({whichPopup:null})
     };
 
-    reqUser = (name, password) =>{
-        auth.createUserWithEmailAndPassword(name,password)
-            .catch((e)=>console.log(e));
-        this.hidePopup();
+    renderPopup(name){
+        switch (name) {
+            case 'Login': return(<LoginPopup hidePopup={this.hidePopup} />);
+            case 'Register': return (<RegisterPopup hidePopup={this.hidePopup} />);
+            case 'Logout': userEnterService.logOutUser(); break;
+            default: return null;
+         }
     };
 
-    logInUser = (name, password) =>{
-        auth.signInWithEmailAndPassword(name,password)
-            .catch(e=>console.log(e));
-        this.hidePopup();
+    renderButtons(isLog){
+        if (isLog){
+            return <LoggedInHeader userClick={this.buttonClick}/>
+        }
+        else{
+            return <StartHeader userClick={this.buttonClick}/>
+        }
     };
 
-    logOutUser(){auth.signOut().catch(e=>console.log(e))};
 
 
     render() {
 
-
+        const {isLogged}= this.props;
         const {whichPopup} = this.state;
 
-        const loginForm = (whichPopup==='Login')?<Popup submit={this.logInUser} exit={this.hidePopup} text={'Login'}/>:null;
-        const registrationForm = (whichPopup === 'Register')?<Popup submit={this.reqUser} exit={this.hidePopup} text={'Registration'} />:null;
+        const buttons = this.renderButtons(isLogged);
+        const popups = this.renderPopup(whichPopup);
 
-        if (this.props.isLogged){
-            return <button onClick={()=>this.logOutUser()}>Sign Out</button>
-        }
 
         return (
-            /*<div>
 
-                {loginForm}
-                {registrationForm}
-                <span onClick={()=>{this.popupClick('Login')}}> Login </span>
-                <span onClick={()=>{this.popupClick('Register')}} > Register </span>
-            </div>*/
 
             <div>
-                {loginForm}
-                {registrationForm}
+                {popups}
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <span className="navbar-brand">What's up?</span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -64,21 +64,7 @@ export default class Header extends Component{
                         <span className="navbar-toggler-icon"> </span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <span className="nav-link" onClick={() => {
-                                    this.popupClick('Login')
-                                }}> Login </span>
-                            </li>
-                            <li className="nav-item">
-                                <span className="nav-link" onClick={() => {
-                                    this.popupClick('Register')
-                                }}> Register </span>
-                            </li>
-                            <li className="nav-item">
-                                <span className="nav-link"> About </span>
-                            </li>
-                        </ul>
+                        {buttons}
                     </div>
                 </nav>
             </div>

@@ -10,9 +10,16 @@ export default class Popup extends Component{
         passwordText:''
     };
 
-    onSubmit = (e) =>{
+    onSubmit = async (e) =>{
+
+        const {userFunc,hidePopup} = this.props;
+        const {emailText, passwordText} = this.state;
+
+
         e.preventDefault();
-        this.props.submit(this.state.emailText,this.state.passwordText);
+        const rez = await userFunc(emailText,passwordText);
+        console.log(rez);
+        hidePopup();
     };
 
     onEmailChange = (e) =>{
@@ -52,7 +59,7 @@ export default class Popup extends Component{
                                    placeholder="At least 6 symbols" onChange={this.onPasswordChange} />
                         </div>
                         <button type="submit" className="btn btn-primary m-2" onClick={this.onSubmit}>Submit</button>
-                        <button type="submit" className="btn btn-secondry m-2" onClick={this.onSubmit}>Return</button>
+                        <button type='button' className="btn btn-secondary m-2" onClick={this.props.hidePopup}>Return</button>
                     </form>
                 </div>
             </div>

@@ -1,60 +1,76 @@
-import {db} from "../FB/FBmore";
+import {db} from "../FB";
+import firebase from "firebase";
+
 
 export default class UserDataService{
 
-    async getSize(uid) {
-        return ( await db
-                .collection('users')
-                .doc(uid)
-                .collection('listItems')
-                .get()
-                .then(snap => {
-                    return (snap.size+1).toString();
-                })
-                .catch((e)=>{return e})
-        )
-    }
+    uniqueID(){
+        function chr4(){
+            return Math.random().toString(16).slice(-4);
+        }
+        return chr4() + chr4() +
+            '-' + chr4() +
+            '-' + chr4() +
+            '-' + chr4() +
+            '-' + chr4() + chr4() + chr4();
+    };
 
 
-    async createItem(text,uid){
-        const id = await this.getSize(uid);
+
+    getAllItems(uid,success){
+        db.collection('users')
+            .doc(uid)
+            .collection('listItems')
+            .orderBy("timestamp","asc")
+            .onSnapshot(snapshot  => {
+                let todoData =[];
+                snapshot.forEach(doc =>{
+                    todoData.push(doc.data())});
+                success(todoData);
+                //this.setState({todoData})
+            });
+    };
+
+
+    createItem(text,uid){
+        const id=this.uniqueID();
         db
             .collection('users')
             .doc(uid)
             .collection('listItems')
             .doc(id)
             .set({
-                text,
                 id,
+                text,
                 important: false,
-                done: false
+                done: false,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
             })
             .catch((e)=>{return e});
-    }
+    };
 
 
-    updateItem(property,id,prevValue, uid){
+    updateItem(property,itemId,prevValue, uid){
         db
             .collection('users')
             .doc(uid)
             .collection('listItems')
-            .doc(id)
+            .doc(itemId)
             .update({
-                [property]: !prevValue
-            })
+                [property]: !prevValue})
             .catch((e)=>{return e});
-    }
+    };
 
 
-    deleteItem(id,uid){
+    deleteItem(itemId,uid){
         db
             .collection('users')
             .doc(uid)
             .collection('listItems')
-            .doc(id)
+            .doc(itemId)
             .delete()
             .catch(e=>{return e});
-    }
+    };
 
 
 }

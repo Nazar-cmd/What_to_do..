@@ -1,13 +1,13 @@
-.todo_list_item.done{
+.todo-list-item.done{
     text-decoration: line-through;
 }
 
-.todo_list_item.important{
+.todo-list-item.important{
     font-weight: bold;
     color: #00BFFF;
 }
 
-.todo_list_item{
+.todo-list-item{
     display: inline-flex;
     width: 70%;
     white-space: pre-wrap;
@@ -17,18 +17,18 @@
     overflow-wrap: break-word;
 }
 
-.todo_list .btn{
+.todo-list .btn{
     width: 31px !important ;
 }
 
 
 @media (max-width: 425px ) {
-    .todo_list_item{
+    .todo-list-item{
         width: 65%;
     }
 
 
-    .todo_list .btn{
+    .todo-list .btn{
         width: 31px !important ;
     }
 }
