@@ -1,6 +1,7 @@
 .list-group{
     max-height: 350px;
     overflow-y: auto;
+    border-radius: 0.25rem;
 }
 
 @media (max-width: 425px) {

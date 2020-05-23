@@ -1,32 +1,13 @@
-
-
-
-
-.description h4{
-    text-align: center;
+body{
+    background-color: #aedef4;
+    background-image: url("https://st2.depositphotos.com/3648829/6254/v/450/depositphotos_62541341-stock-illustration-vector-seamless-pattern-of-bananas.jpg");
+    background-repeat: repeat;
 
 }
 
-
-.logout-theme{
+.app{
     margin: auto;
-    max-width: 600px;
-}
+    max-width: 400px;
+    padding: 0 0.5rem;
 
-.description-item{
-    border-radius: 3rem;
-    margin: 1rem;
-    display: flex;
-    flex-direction: row;
-}
-
-.description img{
-    margin: auto;
-    padding: 1rem;
-    width: 60%;
-    border-radius: 1rem;
-}
-
-.card-body{
-    text-align: center;
 }

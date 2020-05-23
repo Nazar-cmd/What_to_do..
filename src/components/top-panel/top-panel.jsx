@@ -3,10 +3,14 @@ import ItemStatusFilter from "../item-status-filter";
 import React,{Component} from "react";
 
 import './top-panel.css'
+import {UserDataService} from "../service";
 
 export default class TopPanel extends Component{
 
+    userDataService = new UserDataService();
+
     state={
+        todoData: null,
         search:'',
         filter:'all',
     };
@@ -49,10 +53,10 @@ export default class TopPanel extends Component{
 
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const {search, filter} = this.state;
-        const { todoData, viewAppData} = this.props;
+        const {search, filter, todoData} = this.state;
+        const { viewAppData, } = this.props;
 
-        if (todoData !== prevProps.todoData || this.state !== prevState){
+        if (this.state !== prevState){
             const visibleItems = this.filter(this.search(todoData, search),filter);
             viewAppData(visibleItems);
         }
@@ -63,7 +67,7 @@ export default class TopPanel extends Component{
 
 
     render() {
-        const {filter}=this.state
+        const {filter}=this.state;
         return(
             <div className="top-panel">
                 <SearchPanel

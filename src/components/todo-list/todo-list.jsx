@@ -28,7 +28,6 @@ const TodoList = ({todoIt, onDeleted, onToggle}) => {
     });
 
 
-   // console.log(todoIt)
     return(
 
         <div className="item-list">

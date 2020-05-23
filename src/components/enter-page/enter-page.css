@@ -1,0 +1,74 @@
+.front, .back{
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    padding: 1rem;
+    margin: 2rem auto;
+    border-radius: 5px;
+    width: 100%;
+
+    background-color: #aedef4;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 5);
+
+    backface-visibility: hidden;
+}
+
+.enter-page-img{
+    border-radius: 50%;
+    max-width: 35%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    animation: pulsing 8s infinite;
+}
+
+.enter-page-button{
+    margin: 0.3rem;
+    border-radius: 1rem;
+    background: linear-gradient(180deg,#f8c700,#d7ac01);
+}
+
+.enter-page-button:hover {
+    background: linear-gradient(45deg,#fcf362 ,#f0ad00);
+}
+
+
+.flip-container {
+    perspective: 1000px;
+}
+
+.flipper {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+@keyframes pulsing {
+    0% {
+        transform: scale(0.95, 0.95);
+        box-shadow:
+                0px 0px 3px #5f5f5f,
+                0px 0px 0px 5px white,
+                8px 8px 15px #a7aaaf ;
+    }
+    50% {
+        transform: scale(1.0, 1.0);
+        box-shadow:
+                0px 0px 2px #5f5f5f,
+                0px 0px 0px 5px white;
+    }
+    100% {
+        transform: scale(0.95, 0.95);
+        box-shadow:
+                0px 0px 3px #5f5f5f,
+                0px 0px 0px 5px white,
+                8px 8px 15px #a7aaaf ;
+    }
+}
