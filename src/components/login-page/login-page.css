@@ -1,4 +1,4 @@
-.front, .back{
+.login-page{
 
     position: absolute;
     display: flex;
@@ -14,6 +14,13 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 5);
 
     backface-visibility: hidden;
+
+}
+
+.login-page form{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .enter-page-img{
@@ -37,18 +44,6 @@
 }
 
 
-.flip-container {
-    perspective: 1000px;
-}
-
-.flipper {
-    transition: 0.8s;
-    transform-style: preserve-3d;
-}
-
-.back {
-    transform: rotateY(180deg);
-}
 
 @keyframes pulsing {
     0% {

@@ -6,8 +6,30 @@ body{
 }
 
 .app{
-    margin: auto;
+    position: relative;
     max-width: 400px;
     padding: 0 0.5rem;
+    margin: auto;
+}
 
+
+.fade-enter{
+    opacity: 0;
+}
+
+.fade-enter-active{
+    opacity: 1;
+    transition: 1s ;
+
+}
+
+.fade-exit{
+    background-color: #f0ad00;
+
+}
+
+.fade-exit-active{
+   transform: translateY(20%);
+    opacity: 0;
+    transition:  1.5s;
 }

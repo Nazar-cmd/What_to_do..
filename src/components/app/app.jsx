@@ -1,50 +1,50 @@
 import React, {Component} from "react";
 import MainApp from "../main-app";
-import EnterPage from "../enter-page";
+import LoginPage from "../login-page";
 import {auth} from '../FB'
+
+import "./app.css"
+
 import {
     Route,
     NavLink,
     Switch
 } from "react-router-dom";
-
-import "./app.css"
-import {CSSTransition, TransitionGroup} from "react-transition-group";
-import startPic from "../../img/3.png";
-
-export default class App extends Component{
-
-    state={
-        loggedIn: null,
-        user:null
-    };
+import {
+    CSSTransition,
+    TransitionGroup,
+} from 'react-transition-group';
 
 
 
-    componentDidMount() {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({loggedIn: true , user})}
-            else {
-                this.setState({ loggedIn: false })}
-        });
-    }
 
+const App = () =>{
 
+    return(
 
-    render() {
-
-        const {user,loggedIn} = this.state;
-
-        //const head = (loggedIn !== null)?<Header isLogged={loggedIn}/>:null;
-        const main = (loggedIn)?<MainApp user={user}/>:null;
-
-        return(
-            <div className='app'>
-                <EnterPage/>
+        <div className="app">
+            <div className="nav">
+                <NavLink exact to="/" activeClassName="active">Home</NavLink>
+                <NavLink to="/about" activeClassName="active">About</NavLink>
             </div>
+            <Route render={({location}) => (
+                <TransitionGroup>
+                    <CSSTransition
+                        key={location.key}
+                        timeout={1500}
+                        classNames="fade">
+                        <Switch location={location}>
+                            <Route exact path="/" component={LoginPage}/>
+                            <Route exact path="/about" component={LoginPage}/>
+
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+            )} />
+        </div>
 
 
-        );
-    };
-}
+    );
+};
+
+export default App;
