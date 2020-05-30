@@ -1,5 +1,4 @@
 .login-page{
-
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -10,7 +9,7 @@
     border-radius: 5px;
     width: 100%;
 
-    background-color: #aedef4;
+    background-image: url("https://i.pinimg.com/736x/e8/3b/66/e83b66a4cfe5282103c9ae62b5e39815.jpg");
     box-shadow: 0 0 5px rgba(0, 0, 0, 5);
 
     backface-visibility: hidden;
@@ -23,15 +22,6 @@
     flex-direction: column;
 }
 
-.enter-page-img{
-    border-radius: 50%;
-    max-width: 35%;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    animation: pulsing 8s infinite;
-}
 
 .enter-page-button{
     margin: 0.3rem;
@@ -44,26 +34,3 @@
 }
 
 
-
-@keyframes pulsing {
-    0% {
-        transform: scale(0.95, 0.95);
-        box-shadow:
-                0px 0px 3px #5f5f5f,
-                0px 0px 0px 5px white,
-                8px 8px 15px #a7aaaf ;
-    }
-    50% {
-        transform: scale(1.0, 1.0);
-        box-shadow:
-                0px 0px 2px #5f5f5f,
-                0px 0px 0px 5px white;
-    }
-    100% {
-        transform: scale(0.95, 0.95);
-        box-shadow:
-                0px 0px 3px #5f5f5f,
-                0px 0px 0px 5px white,
-                8px 8px 15px #a7aaaf ;
-    }
-}
