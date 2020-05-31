@@ -6,60 +6,49 @@ import df from "../../img/kisspng-pin-badges-button-lapel-pin-5b3bb31e0ba8a6.490
 
 import "./app.css"
 
-import {
-    Route,
-    NavLink,
-    Switch
-} from "react-router-dom";
-import {
-    CSSTransition,
-    TransitionGroup,
-} from 'react-transition-group';
+import {Route, NavLink, Switch, useLocation} from "react-router-dom";
+import { CSSTransition, TransitionGroup} from 'react-transition-group';
+import StartPage from "../start-page";
 
 
 
 
 const App = () =>{
-
+    let location = useLocation();
     return(
 
         <div className="app">
-            <div className="nav">
-                <NavLink exact to="/" activeClassName="active">Home</NavLink>
-                <NavLink to="/about" activeClassName="active">About</NavLink>
-            </div>
 
-            <Route render={({location}) => (
-                <TransitionGroup>
-                    <CSSTransition
-                        key={location.key}
-                        timeout={10000}
-                        classNames="fade">
+            <Switch location={location}>
 
-                        <Switch location={location}>
+                <Route path="/list" render={()=>{
+                    return(
+                        <div className="position-absolute topl"> 123</div>
 
-                            <Route exact path="/" render={()=>{return(
+                    )}}/>
+                <Route path="/" component={StartPage}/>
 
-                                <div className="xi">
-                                    <img src={df} alt="sdv"/>
-                                   <LoginPage/>
-                                </div>
+            </Switch>
+           {/* <TransitionGroup>
+                <CSSTransition
+                    key={location.key}
+                    timeout={5000}
+                    classNames="clap">
 
-                            )}}/>
-                            <Route exact path="/about" render={()=>{return(
+                    <Switch location={location}>
 
-                                <div className="xi">
-                                    <img src={df} alt="sdv"/>
-                                    <LoginPage/>
-                                </div>
+                        <Route path="/list" render={()=>{
+                            return(
+                                <div className="Bottom"> 123</div>
 
                             )}}/>
+                        <Route path="/" component={StartPage}/>
 
-                        </Switch>
-                    </CSSTransition>
-                </TransitionGroup>
-            )} />
+                    </Switch>
+                </CSSTransition>
+            </TransitionGroup>*/}
         </div>
+
 
 
     );

@@ -1,74 +1,43 @@
 body{
-    background-color: #efbb85;
-    background-image: url("https://wallpaperplay.com/walls/full/8/0/7/37244.jpg");
     background-repeat: repeat;
     overflow:  hidden;
-    color: #16264c;
-    font-family: 'Architects Daughter', cursive;
-}
-
-/*
-https://wallpaperplay.com/board/cork-board-wallpapers
-https://wallpaperplay.com/walls/full/8/0/7/37244.jpg#.XtBGBud68e8.link    !!!
-https://i.pinimg.com/564x/dd/e4/93/dde4933baf8dbac6e3b783c2538c0bfa.jpg
-https://i.pinimg.com/564x/37/b6/8b/37b68b344b116e7176f06921427f9097.jpg
-*/
-.app{
-   position: relative;
-    max-width: 400px;
-
-    padding: 0 .5rem;
-    margin: auto;
+    font-family: 'PT Serif', serif;
 
 }
 
-
-.fade-enter-active{
-    opacity: 1;
-    transition: 10s ;
-
+.topl{
+    height: 10vh;
+    background: #f0ad00;
+    width: 100vw;
 }
 
-.fade-exit{
-    background-color: #f0ad00;
-
-}
-
-.xi.fade-exit-active{
-    animation: yAxis 3s  cubic-bezier(0.65, 0, 0.35, 1);
-    animation-fill-mode: forwards;
-    transform-origin: center ;
-}
-
-
-
-
-@keyframes yAxis {
-    10% { transform: rotate(2deg) }
-    20% { transform: rotate(-3deg) }
-    30% { transform: rotate(4deg) }
-    40% { transform: rotate(-5deg) }
-    50% { transform: rotate(6deg) }
-    60% { transform: rotate(-7deg) }
-    70% { transform: rotate(8deg) }
-    80% { transform: rotate(-9deg) }
-    90% { transform: rotate(10deg)}
-    100% { transform: rotate(-11deg); opacity: 0}
-
-
-}
-
-
-
-
-img{
+.top{
     position: absolute;
-    width: 40px;
-    height: 40px;
-    z-index: 1;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
+    z-index: 2;
+    height: 6vh;
+    width: 100vw;
+    background: #bfd9da;
+}
+
+.Bottom, .bottom{
+    top: 100%;
+    position: absolute;
+    z-index: 2;
+    height: 4vh;
+    width: 100vw;
+    background: #bfd9da;
+    transition: all 5s;
+}
+
+.content{
+    height: 96vh;
+    background: blanchedalmond;
+    transition: height 5s ease-in-out;
+
+    width: 100vw;
+}
+
+
+.clap-enter-active .content{
+    height: 0;
 }

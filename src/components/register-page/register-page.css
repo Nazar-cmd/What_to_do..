@@ -1,0 +1,26 @@
+.register-page{
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    padding: 1rem;
+    max-width: 400px;
+    transition: all 2s ease-in-out;
+}
+
+.register-label-input{
+    display: flex;
+    margin: 1.3rem 0.5rem;
+}
+
+.input-info-button{
+    height: 100%;
+    margin: auto;
+    background-color: lightblue;
+}
+
+.register-page input{
+    flex-grow: 1;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+

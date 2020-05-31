@@ -1,0 +1,24 @@
+
+.scroll-enter{
+    transform: translateY(250%);
+}
+
+
+
+.scroll-exit-active{
+    transition: 2s ease-in;
+    transform: translateY(-150%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.scroll-enter-active{
+    transition: 2s ease-out;
+    transform: translateY(0%);
+}
+
+.page-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
